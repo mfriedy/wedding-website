@@ -265,9 +265,12 @@
                 event.preventDefault();
                 const password = document.getElementById('password').value;
                 // Replace with your actual API endpoint
+                let formData = new FormData();
+                formData.append('unlock_pw', password);
+
                 fetch('http://wedding.shannon-and-matt.com/unlock_form', {
                     method: 'POST',
-                    body: new FormData({ "unlock_pw": password })
+                    body: formData
 
                 })
                     .then(response => response.json())
