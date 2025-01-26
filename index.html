@@ -267,7 +267,7 @@
                 // Replace with your actual API endpoint
                 fetch('http://wedding.shannon-and-matt.com/unlock_form', {
                     method: 'POST',
-                    body: FormData({ "unlock_pw": "johxns" })
+                    body: new FormData({ "unlock_pw": password })
 
                 })
                     .then(response => response.json())
