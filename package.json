@@ -23,7 +23,8 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
-    "sass": "^1.25.0"
+    "sass": "^1.25.0",
+    "wrangler": "^3.105.1"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
