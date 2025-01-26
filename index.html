@@ -252,9 +252,8 @@
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal"
                             aria-label="Close"><span>&times;</span></button>
-                        <iframe
-                            src="https://docs.google.com/forms/d/e/1FAIpQLScY31ockxHDrDkN0oHRq5YgNnElAPyQf0QnNcc4U30AxYct4A/viewform?embedded=true"
-                            width="400" height="800" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                        <iframe id="form_iframe" src="" width="400" height="800" frameborder="0" marginheight="0"
+                            marginwidth="0"></iframe>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -277,7 +276,9 @@
                     .then(data => {
                         if (data.success) {
                             $('#password-modal').modal('hide');
+                            document.getElementById('form_iframe').src = data.form_url;
                             $('#rsvp-modal-form').modal('show');
+
                         } else {
                             document.getElementById('password-error').style.display = 'block';
                         }

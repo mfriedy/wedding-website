@@ -4,8 +4,15 @@ export async function onRequestPost(context) {
     const { unlock_pw } =
         Object.fromEntries(body);
     if (context.env.rsvp_form_password === unlock_pw) {
-        return new Response("SUCCESS - UNLOCKED");
+        const data = {
+            success: true,
+            form_url: "https://docs.google.com/forms/d/e/1FAIpQLScY31ockxHDrDkN0oHRq5YgNnElAPyQf0QnNcc4U30AxYct4A/viewform?embedded=true"
+        };
+        return Response.json(data);
     } else {
-        return new Response("FAIL :(");
+        const data = {
+            success: false,
+        };
+        return Response.json(data);
     }
 }
