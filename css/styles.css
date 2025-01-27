@@ -1,0 +1,126 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,400italic,300italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
+
+/* Text colours */
+:root {
+    --txt-primary: rgba(28, 54, 83, 0.6);
+    /* body font */
+    --txt-secondary: #3D4351;
+    /* heading font */
+    --txt-light: #fff;
+    /* header/hero */
+    --txt-accent: #ACB1B4;
+    --form-placeholder: #BCC1C3;
+    /* form placeholder text */
+    /* Global colours */
+    --accent-color: #e8ca6f;
+    /* global accent colour */
+    --accent-color-hover: #d3b56a;
+    /* global accent colour hover */
+    --white-color: #fff;
+    --black-color: #000;
+    /* Typography colours */
+    --h2-color: #3D4351;
+    --h3-color: #3D4351;
+    --h5-color: #3D4351;
+    /* Layout colours */
+    --section-light: #fff;
+    --section-dark: #f8f9fd;
+    --to-top-bg: #495061;
+    --footer-primary: #3D4351;
+    --footer-secondary: #373D4A;
+    /* Keylines */
+    --keyline-color: #E6E9EA;
+    --footer-keyline-color: #4E566C;
+    /* // Fonts */
+
+    --sans-serif: 'Open Sans', sans-serif;
+    --serif: Merriweather, Georgia, 'Times New Roman', serif;
+    --accent-font: 'Nunito', sans-serif;
+
+    /* // Weights */
+
+    --light: 300;
+    --normal: 400;
+    --semibold: 500;
+    --bold: 700;
+
+    /* // Sizes */
+
+    --font-size-h1: 60px;
+    --font-size-h2: 40px;
+    --font-size-h3: 24px;
+    --font-size-h4: 18px;
+    --font-size-h5: 15px;
+    --font-size-p: 15px;
+    --nav-font-size: 13px;
+    --blog-post-title: 11px;
+
+    /* // Responsive Sizes */
+
+    --responsive-h1: 40px;
+
+    /* // Line height */
+
+    --base-line-height: 29px;
+
+}
+
+
+nav {
+    overflow: auto;
+}
+
+section .header {
+    padding-bottom: 20px;
+}
+
+.section-padding {
+    padding: 20px 0;
+}
+
+.section-border {
+    border-bottom: 1px solid var(--keyline-color);
+}
+
+section.features,
+section.events,
+section.blog {
+    background: #f8f9fd;
+}
+
+.hero {
+    min-height: 350px;
+    background: url('../img/hero-min.jpg') center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    /* width: 100vw; */
+    height: 50vh;
+
+    /* background-size: 100% 100%; */
+    background-repeat: no-repeat;
+}
+
+#video-content {
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+    position: relative;
+    background: rgba(17, 17, 17, .5);
+    text-align: center
+}
+
+#video-content h5 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 10px
+}
+
+#video-content p {
+    color: #fff
+}
