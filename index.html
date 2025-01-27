@@ -17,12 +17,12 @@
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/styles.min.css">
     <link rel="stylesheet" href="css/queries.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 </head>
 
 <body id="top">
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+        <div class="down-arrow floating-arrow"><a href="#events"><i class="fa fa-angle-down"></i></a></div>
     </section>
 
     <section id="invitation" class="section-padding">
@@ -75,82 +75,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <a class="btn btn-accent btn-small" data-toggle="modal" data-target="#password-modal">
-                        <i class="fa fa-barcode"></i>&nbsp;&nbsp;Soft-RSVP Now
-                    </a>
+                <div id="dialog-rsvp" style="display:none;max-width:500px;">
+                    <form id="password-form">
+                        <div class="form-group">
+                            <label for="password">Enter Password:</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-light">Submit</button>
+                        <br>
+                    </form>
+                </div>
+                <div class="col-md-12 text-center">
+                    <a href="#" data-fancybox data-src="#dialog-rsvp" class="btn-fill btn-large" role="button">Soft-RSVP
+                        Now</a>
                 </div>
             </div>
         </div>
-        <div id="password-modal" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close"><span>&times;</span></button>
-                        <form id="password-form">
-                            <div class="form-group">
-                                <label for="password">Enter Password:</label>
-                                <input type="password" class="form-control" id="password" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                        <div id="password-error" class="text-danger" style="display:none;">Incorrect password. Please
-                            try again.</div>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
 
-        <div id="rsvp-modal-form" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close"><span>&times;</span></button>
-                        <iframe id="form_iframe" src="" width="400" height="800" frameborder="0" marginheight="0"
-                            marginwidth="0"></iframe>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
-        <script>
-            document.getElementById('password-form').addEventListener('submit', function (event) {
-                event.preventDefault();
-                const password = document.getElementById('password').value;
-                // Replace with your actual API endpoint
-                let formData = new FormData();
-                formData.append('unlock_pw', password);
-
-                fetch('https://wedding.shannon-and-matt.com/unlock_form', {
-                    method: 'POST',
-                    body: formData
-
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            $('#password-modal').modal('hide');
-                            document.getElementById('form_iframe').src = data.form_url;
-                            $('#rsvp-modal-form').modal('show');
-
-                        } else {
-                            document.getElementById('password-error').style.display = 'block';
-                        }
-                        const passwordError = document.createElement('div');
-                        passwordError.id = 'password-error';
-                        passwordError.className = 'text-danger';
-                        passwordError.style.display = 'none';
-                        passwordError.textContent = 'Incorrect password. Please try again.';
-                        document.getElementById('password-form').appendChild(passwordError);
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-            });
-        </script>
-        </div>
+        <!-- <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+            <iframe id="form_iframe" src="" width="400" height="800" frameborder="0" marginheight="0"
+                marginwidth="0"></iframe>
+        </div> -->
     </section>
 
     <section class="events section-padding" id="events">
@@ -162,46 +109,36 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
-                    <div class="wp3">
-                        <p><strong>Tuesday 7th October</strong></p>
-                        <h5>Welcome drinks <span class="time">TBC</span></h5>
-                        <p>Details TBC, but lets all meet up at a nearby brewpub.</p>
-                        <p>This event is optional</p>
-                    </div>
-                    <div class="wp5">
-                        <p><strong>Wednesday 8th October</strong></p>
-                        <h5>Sunset Boat Cruise <span class="time">TBC</span></h5>
-                        <p>Details TBC, but join us on a sunset cruise on a catamaran, likely leaving/returning from
-                            Waikiki or Prince wharf.
-                            <br>Catamaran paid for by Shannon and Matt. Cash bar for drinks.
-                        </p>
-                        <p>Recommended Hawaiian shirt dress code</p>
-                        <p>This event is optional</p>
-                    </div>
+                    <p><strong>Tuesday 7th October</strong></p>
+                    <h5>Welcome drinks <span class="time">TBC</span></h5>
+                    <p>Details TBC, but lets all meet up at a nearby brewpub.</p>
+                    <p>This event is optional</p>
+                    <p><strong>Wednesday 8th October</strong></p>
+                    <h5>Sunset Boat Cruise <span class="time">TBC</span></h5>
+                    <p>Details TBC, but join us on a sunset cruise on a catamaran, likely leaving/returning from
+                        Waikiki or Prince wharf.
+                        <br>Catamaran paid for by Shannon and Matt. Cash bar for drinks.
+                    </p>
+                    <p>Recommended Hawaiian shirt dress code</p>
+                    <p>This event is optional</p>
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
-                    <div class="wp4">
-                        <p><strong>Thursday 9th October</strong></p>
+                    <p><strong>Thursday 9th October</strong></p>
 
-                        <h5>WEDDING! <span class="time">5PM-10PM</span></h5>
-                        <p>Ceremony and reception at Halekulani Hotel.
-                            <br>4:30pm Arrive at Venue
-                        </p>
-                        <p>Adults-only event, but we will help with babysitting arrangements.</p>
-                    </div>
-                    <div class="wp6">
-                        <p><strong>Friday 10th October</strong></p>
-                        <h5>Morning-after brunch <span class="time">TBC</span></h5>
-                        <p>Before we all head off our separate ways, lets meet for brunch. Details TBC.</p>
-                        <p>This event is optional</p>
-                    </div>
+                    <h5>WEDDING! <span class="time">5PM-10PM</span></h5>
+                    <p>Ceremony and reception at Halekulani Hotel.
+                        <br>4:30pm Arrive at Venue
+                    </p>
+                    <p>Adults-only event, but we will help with babysitting arrangements.</p>
+                    <p><strong>Friday 10th October</strong></p>
+                    <h5>Morning-after brunch <span class="time">TBC</span></h5>
+                    <p>Before we all head off our separate ways, lets meet for brunch. Details TBC.</p>
+                    <p>This event is optional</p>
                 </div>
             </div>
-            <div class="row section-padding">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <a class="btn btn-accent btn-small" data-toggle="modal" data-target="#dc-modal">
-                        <i class="fa fa-barcode"></i>&nbsp;&nbsp;Dress code
-                    </a>
+            <div class="row">
+                <div class="text-center">
+                    <a class="btn-fill btn-small">Dress code</a>
                 </div>
             </div>
             <div class="row">
@@ -233,10 +170,11 @@
     </section>
 
 
-    <section id="video-bg" class="hidden-sm hidden-xs">
-        <div id="bgndVideo" class="player"
+    <section id="photo" class="hidden-sm hidden-xs">
+        <img src="img/helicopter.jpg" alt="Waikiki" class='img-fluid w-100'>
+        <!-- <div id="bgndVideo" class="player"
             data-property="{videoURL:'https://youtu.be/VNa8cs6lsTc',containment:'#video-bg',autoPlay:true, mute:true, showControls:false, startAt:7, stopAt:380, opacity:1}">
-        </div>
+        </div> -->
         <div id="video-content">
             <h5>Waikiki</h5>
             <p>Oahu, Hawaii</p>
@@ -261,85 +199,92 @@
         </div>
     </section>
 
-    <section class="travel text-center" id="travel"></section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h3>TRAVEL</h3>
-                <h5>Flights</h5>
-                <p>Daniel K. Inouye International Airport is the airport on Oahu in Honolulu. There are direct flights
-                    from Sydney and connecting flights from the Midwest.</p>
-                <p>We will be flying in on Qantas flight 103 on Sunday 5th October, arriving at 9:00AM. We will be
-                    departing on Qantas flight 104 on Saturday 11th October, leaving at 11:00AM. Once you have your
-                    flights booked, please let us know your arrival/departures.</p>
-                <p>If you decide to extend your holiday, there are inter-island flights from the Honolulu airport.
-                    Southwest and Hawaiian airlines flies to each island. If you decide to visit Kauai or the Big
-                    Island, ask us for recommendations!</p>
-                <h5>Hotels</h5>
-                <p>The wedding ceremony and reception will be held at Halekulani Hotel in Waikiki beach. We will be
-                    staying here the 9th of October and will be staying at the Embassay suites by Hilton on Waikiki
-                    beach the other nights.</p>
-                <p>Waikiki Beach has a plethora of hotels right on the beach or just in from the beach. There are chain
-                    hotels or small hotels with kitchens available. Please book what best suites your needs and ask us
-                    if you need any assistance.</p>
-                <p>Airbnb's are heavily regulated on Oahu. They are limited to very specific areas on the island. If you
-                    decide to stay in an airbnb please ensure the booking information includes the government rental
-                    code, meaning it is approved for short term rentals.</p>
-                <h5>Transport</h5>
-                <p>Uber is used on Oahu and is easily available. It is about a 20-30 minute uber from Honolulu airport
-                    to Waikiki beach.</p>
-                <p>Rental cars are also available for hire on Oahu if you would like to explore other areas of the
-                    island. Please note parking in Waikiki beach could prove expensive and difficult.</p>
-                <p>Transport will not be provided to or from the wedding venue.</p>
+    <section class="travel text-center" id="travel">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="header">Travel</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
+                    <h5>Flights</h5>
+                    <p>Daniel K. Inouye International Airport is the airport on Oahu in Honolulu. There are direct
+                        flights
+                        from Sydney and connecting flights from the Midwest.</p>
+                    <p>We will be flying in on Qantas flight 103 on Sunday 5th October, arriving at 9:00AM. We will be
+                        departing on Qantas flight 104 on Saturday 11th October, leaving at 11:00AM. Once you have your
+                        flights booked, please let us know your arrival/departures.</p>
+                    <p>If you decide to extend your holiday, there are inter-island flights from the Honolulu airport.
+                        Southwest and Hawaiian airlines flies to each island. If you decide to visit Kauai or the Big
+                        Island, ask us for recommendations!</p>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
+                    <h5>Hotels</h5>
+                    <p>The wedding ceremony and reception will be held at Halekulani Hotel in Waikiki beach. We will be
+                        staying here the 9th of October and will be staying at the Embassay suites by Hilton on Waikiki
+                        beach the other nights.</p>
+                    <p>Waikiki Beach has a plethora of hotels right on the beach or just in from the beach. There are
+                        chain
+                        hotels or small hotels with kitchens available. Please book what best suites your needs and ask
+                        us
+                        if you need any assistance.</p>
+                    <p>Airbnb's are heavily regulated on Oahu. They are limited to very specific areas on the island. If
+                        you
+                        decide to stay in an airbnb please ensure the booking information includes the government rental
+                        code, meaning it is approved for short term rentals.</p>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
+                    <h5>Transport</h5>
+                    <p>Uber is used on Oahu and is easily available. It is about a 20-30 minute uber from Honolulu
+                        airport
+                        to Waikiki beach.</p>
+                    <p>Rental cars are also available for hire on Oahu if you would like to explore other areas of the
+                        island. Please note parking in Waikiki beach could prove expensive and difficult.</p>
+                    <p>Transport will not be provided to or from the wedding venue.</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h3>TRAVEL</h3>
-            <p>bla bla17</p>
+        <div class="row">
+            <div class="col-xs-12 section-border section-padding">
+            </div>
         </div>
-    </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 section-border section-padding">
-        </div>
-    </div>
     </section>
-    <section class="faq text-center" id="faq"></section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h3>Frequently Asked Questions</h3>
-                <p>Please let us know if you have additional questions!</p>
+    <section class="faq text-center" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="header">Frequently Asked Questions</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Please let us know if you have additional questions!</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h3>Frequently Asked Questions</h3>
-            <p>bla bla17</p>
+        <div class="row">
+            <div class="col-xs-12 section-border section-padding">
+            </div>
         </div>
-    </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 section-border section-padding">
-        </div>
-    </div>
     </section>
-    <section class="todo text-center" id="todo"></section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h3>Things to do in Hawaii</h3>
-                <p>bla bla17</p>
+    <section class="todo text-center" id="todo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="header">Things to do in Hawaii</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <p>bla bla17</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 section-border section-padding">
+        <div class="row">
+            <div class="col-xs-12 section-border section-padding">
+            </div>
         </div>
-    </div>
     </section>
 
     <footer>
@@ -356,14 +301,39 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="js/scripts.js"></script>
     <script>
         Fancybox.bind('[data-fancybox]', {
             // Custom options for all galleries
         });    
     </script>
-    <script src="js/scripts.js"></script>
+    <script>
+        const callback = (entries, observer) => {
+            const entry = entries[0];
+            const { intersectionRatio, isIntersecting } = entry;
+            console.log(intersectionRatio, isIntersecting);
+            // toggle class depending on if content div intersects with viewport
+            const navBar = document.querySelector('.navigation');
+            navBar.classList.toggle('fixed', !entry.isIntersecting);
+        }
 
+        // options lets you control the circumstances under which the observer's callback is invoked
+        const options = {
+            // no root provided - by default browser viewport used to check visibility of target
+            // Uncomment below if you want the nav bar to change background color as soon as content div is scrolled
+            // rootMargin: "-60px 0px 0px 0px",
+            // only detect if visibility of target element is 100% or not
+            threshold: [1]
+        };
 
+        // create intersection observer
+        const io = new IntersectionObserver(callback, options);
+
+        // observe content div 
+        const target = document.querySelector('.container');
+        io.observe(target);
+
+    </script>
 </body>
 
 </html>

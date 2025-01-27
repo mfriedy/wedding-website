@@ -1,38 +1,33 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.getElementById('password-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const password = document.getElementById('password').value;
+    // Replace with your actual API endpoint
+    let formData = new FormData();
+    formData.append('unlock_pw', password);
 
-    /***************** Waypoints (using Intersection Observer) ******************/
-    const waypoints = [
-        { selector: '.wp1', animation: 'fadeInLeft' },
-        { selector: '.wp2', animation: 'fadeInRight' },
-        { selector: '.wp3', animation: 'fadeInLeft' },
-        { selector: '.wp4', animation: 'fadeInRight' },
-        { selector: '.wp5', animation: 'fadeInLeft' },
-        { selector: '.wp6', animation: 'fadeInRight' },
-        { selector: '.wp7', animation: 'fadeInUp' },
-        { selector: '.wp8', animation: 'fadeInLeft' },
-        { selector: '.wp9', animation: 'fadeInRight' }
-    ];
+    fetch('https://wedding.shannon-and-matt.com/unlock_form', {
+        method: 'POST',
+        body: formData
 
-    waypoints.forEach(function (waypoint) {
-        const elements = document.querySelectorAll(waypoint.selector);
-        elements.forEach(function (element) {
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated', waypoint.animation);
-                        observer.unobserve(entry.target); // Stop observing once the animation is applied
-                    }
-                });
-            }, { threshold: 0.75 });
-            observer.observe(element);
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                $('#password-modal').modal('hide');
+                document.getElementById('form_iframe').src = data.form_url;
+                $('#rsvp-modal-form').modal('show');
+
+            } else {
+                document.getElementById('password-error').style.display = 'block';
+            }
+            const passwordError = document.createElement('div');
+            passwordError.id = 'password-error';
+            passwordError.className = 'text-danger';
+            passwordError.style.display = 'none';
+            passwordError.textContent = 'Incorrect password. Please try again.';
+            document.getElementById('password-form').appendChild(passwordError);
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
-    });
-
-
 });
-
-
-// alert_markup
-function alert_markup(alert_type, msg) {
-    return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
-}

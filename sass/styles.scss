@@ -125,6 +125,7 @@ section .header {
   border-radius: 4px;
 }
 
+
 /* ==========================================================================
 Animations
 ========================================================================== */
@@ -191,38 +192,6 @@ Animations
   }
 }
 
-/* ==========================================================================
-Waypoinsts
-========================================================================== */
-.wp1,
-.wp2,
-.wp3,
-.wp4,
-.wp5,
-.wp6,
-.wp7,
-.wp8,
-.wp9 {
-  visibility: hidden
-}
-
-.wp8,
-.wp9 {
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s
-}
-
-.bounceInLeft,
-.bounceInRight,
-.fadeInUp,
-.fadeInUpDelay,
-.fadeInDown,
-.fadeInUpD,
-.fadeInLeft,
-.fadeInRight,
-.bounceInDown {
-  visibility: visible
-}
 
 /* ==========================================================================
 Navigation
@@ -230,8 +199,9 @@ Navigation
 .header-nav.open {
   visibility: visible;
   opacity: 0.9;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+  -webkit-transition: opacity 1.5s;
+  transition: opacity 1.5s;
+  background-color: #333;
 }
 
 .nav-toggle {
@@ -358,6 +328,7 @@ Hero
 }
 
 .navigation {
+
   transition: all 300ms ease-in-out;
   position: fixed;
   width: 100%;
@@ -590,27 +561,6 @@ Features-stack
   position: relative;
 }
 
-/* ==========================================================================
-.features-extra
-========================================================================== */
-.features-extra {
-  position: relative;
-  z-index: 3;
-
-  .btn {
-    margin-top: 20px;
-  }
-
-  .macbook-wrap {
-    position: absolute;
-    width: 916px;
-    height: 540px;
-    background: url("../img/macbook-pro.png") no-repeat center center;
-    top: 114px;
-    z-index: 4;
-    left: 50%;
-  }
-}
 
 /* ==========================================================================
 .hero-strip
@@ -675,184 +625,7 @@ Features-stack
   }
 }
 
-/* ==========================================================================
-.blog
-========================================================================== */
-.blog {
-  padding-bottom: 120px;
 
-  img {
-    width: 100%;
-    height: auto;
-    -moz-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
-  }
-
-  h2 {
-    font-size: $blog-post-title;
-    color: $txt-accent;
-    font-weight: $semibold;
-    text-transform: uppercase;
-    margin-top: 35px;
-  }
-
-  .btn {
-    margin-top: 20px;
-  }
-
-  .blog-img-wrap {
-    position: relative;
-    overflow: hidden;
-
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: rgba($white-color, 0.5);
-      -moz-transition: all 300ms ease-in-out;
-      -o-transition: all 300ms ease-in-out;
-      -webkit-transition: all 300ms ease-in-out;
-      transition: all 300ms ease-in-out;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-      filter: alpha(opacity=0);
-      opacity: 0;
-    }
-
-    i {
-      color: $white-color;
-      font-size: 20px;
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 25px;
-      right: 35px;
-    }
-  }
-
-  .blog-img-wrap:hover img,
-  .blog-img-wrap:focus img {
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-
-  .blog-img-wrap:hover .overlay,
-  .blog-img-wrap:focus .overlay {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
-    filter: alpha(opacity=1);
-    opacity: 1;
-    z-index: 9;
-  }
-
-  figcaption i {
-    margin-left: 5px;
-    font-size: 15px;
-  }
-
-  figcaption a.blog-post-title {
-    color: $txt-primary;
-  }
-
-  figcaption a.blog-post-title:hover,
-  figcaption a.blog-post-title:focus {
-    color: $txt-secondary;
-  }
-}
-
-/* ==========================================================================
-Instagram
-========================================================================== */
-#instagram {
-  img {
-    width: 100%;
-  }
-}
-
-/* ==========================================================================
-Engagement Pics
-========================================================================== */
-#eng-pics {
-  img {
-    width: 100%;
-    height: auto;
-    -moz-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
-  }
-
-  .img-wrap {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-  }
-
-  .img-wrap .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
-    -moz-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    opacity: 0;
-  }
-
-  .img-wrap i {
-    color: #fff;
-    font-size: 15px;
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    top: 6px;
-    right: 6px;
-  }
-
-  .img-wrap:hover img,
-  .img-wrap:focus img {
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-
-  .img-wrap:hover .overlay,
-  .img-wrap:focus .overlay {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
-    filter: alpha(opacity=1);
-    opacity: 1;
-    z-index: 9;
-  }
-
-  .diamond {
-    width: 230px;
-    height: 230px;
-    position: absolute;
-    bottom: -145px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 500;
-  }
-
-  .ring {
-    width: 75px;
-    height: 75px;
-    border-radius: 75px;
-    border: 10px solid #d0d3d4;
-    position: absolute;
-    left: 34%;
-    top: 75%;
-    z-index: -1;
-  }
-}
 
 /* ==========================================================================
 Embed video
@@ -881,49 +654,7 @@ Embed video
   color: #ffffff;
 }
 
-/* ==========================================================================
-Google map
-========================================================================== */
-#map-canvas {
-  height: 500px;
-  width: 100%;
-}
 
-#map-content-wrapper {
-  position: relative;
-  margin-top: -502px;
-  margin-bottom: 150px;
-}
-
-#map-content {
-  margin-top: 40px;
-  padding: 50px 60px;
-  background: #fff;
-  -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-  transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-}
-
-#btn-show-content {
-  padding: 20px;
-  background: #fff;
-  cursor: pointer;
-  display: inline-block;
-  -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-  transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-}
-
-.toggle-map-content {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.pointer-events-none {
-  pointer-events: none;
-}
-
-.pointer-events-auto {
-  pointer-events: auto;
-}
 
 /* ==========================================================================
 RSVP form
