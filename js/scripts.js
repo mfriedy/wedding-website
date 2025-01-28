@@ -13,9 +13,9 @@ document.getElementById('rsvp-password-form').addEventListener('submit', functio
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                document.getElementById('rsvpUnlockModalToggle').modal('hide');
+                document.getElementById('rsvpUnlockModalToggle').hide();
                 document.getElementById('form_iframe').src = data.form_url;
-                document.getElementById('rsvpFormModalToggle').modal('show');
+                document.getElementById('rsvpFormModalToggle').show();
 
             } else {
                 document.getElementById('password-error').style.display = 'block';
