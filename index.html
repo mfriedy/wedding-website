@@ -24,9 +24,6 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-
-
-
 <body id="top">
     <nav class="navbar sticky-top navbar-expand-lg" style="background-color: #e3f2fd;">
         <div class="container-fluid">
@@ -52,11 +49,78 @@
             </div>
         </div>
     </nav>
+    <div class="modal fade" id="dresscodeModalToggle" aria-hidden="true" aria-labelledby="dresscodeModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="dresscodeModalToggleLabel">Dress code</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Sunset cruise</h5>
+                    <p>
+                        <strong>Hawaiian shirts!</strong>
+                        <br>
+                        Lets bring back the styles of 1999 year 6 farewells and come in Hawaiian shirts and
+                        cargo shorts.
+                    </p>
+                    <h5>Wedding</h5>
+                    <p>
+                        <strong>Normal wedding attire</strong>
+                        <br>
+                        We are getting married in Hawaii, but not having a Hawaiian wedding. Only wear
+                        Hawaiian
+                        shirts on the day if you want to annoy Matt.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="rsvpUnlockModalToggle" aria-hidden="true" aria-labelledby="rsvpUnlockModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="rsvpUnlockModalToggleLabel">RSVP password</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="rsvp-password-form">
+                        <div class="form-group">
+                            <label for="password">Enter Password:</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="rsvpFormModalToggle" aria-hidden="true" aria-labelledby="rsvpFormModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="rsvpFormModalToggleLabel">RSVP Form</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="form_iframe" src="" width="400" height="800" frameborder="0" marginheight="0"
+                        marginwidth="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container main-content p-0">
         <div class="hero"></div>
         <section id="invitation">
             <div class="section-padding">
-
                 <div class="row">
                     <div class="col text-center">
                         <h3>We are getting married!</h3>
@@ -66,18 +130,10 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <!-- <form id="password-form">
-                        <div class="form-group">
-                            <label for="password">Enter Password:</label>
-                            <input type="password" class="form-control" id="password" required>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-light">Submit</button>
-                        <br>
-                    </form> -->
-
                     <div class="col-md-6 col-sm-12 col-xs-12 leftcol ms-auto">
-                        Know if you'll make it? <br><a href="#" data-fancybox data-src="#dialog-rsvp"
+                        Know if you'll make it? <br>
+
+                        <a href="#" data-bs-target="#rsvpUnlockModalToggle" data-bs-toggle="modal"
                             class="btn btn-warning btn-fill btn-large" role="button">RSVP
                             Now</a>
                     </div>
@@ -97,8 +153,7 @@
 
             <!-- <div class="modal-body">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
-            <iframe id="form_iframe" src="" width="400" height="800" frameborder="0" marginheight="0"
-                marginwidth="0"></iframe>
+
         </div> -->
         </section>
 
@@ -140,38 +195,6 @@
             </div>
 
             <div class="row">
-                <div class="modal fade" id="dresscodeModalToggle" aria-hidden="true"
-                    aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Dress code</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h5>Sunset cruise</h5>
-                                <p>
-                                    <strong>Hawaiian shirts!</strong>
-                                    <br>
-                                    Lets bring back the styles of 1999 year 6 farewells and come in Hawaiian shirts and
-                                    cargo shorts.
-                                </p>
-                                <h5>Wedding</h5>
-                                <p>
-                                    <strong>Normal wedding attire</strong>
-                                    <br>
-                                    We are getting married in Hawaii, but not having a Hawaiian wedding. Only wear
-                                    Hawaiian
-                                    shirts on the day if you want to annoy Matt.
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="text-center">
                     <button class="btn btn-info" data-bs-target="#dresscodeModalToggle" data-bs-toggle="modal">Dress
                         code</button>

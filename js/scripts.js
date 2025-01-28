@@ -1,4 +1,4 @@
-document.getElementById('password-form').addEventListener('submit', function (event) {
+document.getElementById('rsvp-password-form').addEventListener('submit', function (event) {
     event.preventDefault();
     const password = document.getElementById('password').value;
     // Replace with your actual API endpoint
@@ -13,9 +13,9 @@ document.getElementById('password-form').addEventListener('submit', function (ev
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                $('#password-modal').modal('hide');
+                document.getElementById('rsvpUnlockModalToggle').modal('hide');
                 document.getElementById('form_iframe').src = data.form_url;
-                $('#rsvp-modal-form').modal('show');
+                document.getElementById('rsvpFormModalToggle').modal('show');
 
             } else {
                 document.getElementById('password-error').style.display = 'block';
