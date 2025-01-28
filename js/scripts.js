@@ -17,8 +17,8 @@ document.getElementById('rsvp-password-form').addEventListener('submit', functio
                 var modal = bootstrap.Modal.getOrCreateInstance(myModalEl)
                 modal.hide();
                 document.getElementById('form_iframe').src = data.form_url;
-                var myModelR = document.getElementById('rsvpFormModalToggle');
-                var modalR = bootstrap.Modal.getOrCreateInstance(myModelR)
+                var modalR = new bootstrap.Modal(document.getElementById('rsvpFormModalToggle'));
+                // var modalR = bootstrap.Modal.getOrCreateInstance(myModelR)
                 modalR.show();
 
             } else {
