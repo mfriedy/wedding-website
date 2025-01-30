@@ -133,10 +133,30 @@
                                 required>
                             <label for="who">Who are you:</label>
                             <input type="text" class="form-control" id="who" name="who" required>
-                            <label for="flightin">Flight in (e.g. "QF120"):</label>
-                            <input type="text" class="form-control" id="flightin" name="flightin" required>
-                            <label for="flightout">Flight out:</label>
-                            <input type="text" class="form-control" id="flightout" name="flightout" required>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="flightin">Flight in (e.g. "QF120"):</label>
+                                    <input type="text" class="form-control" id="flightin" name="flightin" required>
+                                </div>
+                                <div class="col">
+                                    <label for="arriveday">ARRIVAL day</label>
+                                    <input type="date" class="form-control" id="arriveday" name="arriveday"
+                                        min="2025-10-01" max="2025-10-31" required>
+                                </div>
+                            </div>
+                            <div class=" row">
+                                <div class="col">
+                                    <label for="flightout">Flight out:</label>
+                                    <input type="text" class="form-control" id="flightout" name="flightout" required>
+                                </div>
+                                <div class="col">
+                                    <label for="leaveday">Departure day</label>
+                                    <input type="date" class="form-control" id="leaveday" name="leaveday"
+                                        min="2025-10-01" max="2025-10-31" required>
+                                </div>
+                            </div>
+
+
                             <label for="accom">Accom:</label>
                             <input type="text" class="form-control" id="accom" name="accom" required>
                         </div>

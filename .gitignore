@@ -36,3 +36,5 @@ typings/
 .env
 .sass-cache/
 *.css.map
+.wrangler
+.dev.vars
