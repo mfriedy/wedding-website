@@ -40,7 +40,9 @@
                     <li class="nav-item"><a href="#map" class="nav-link"><span data-bs-toggle="collapse"
                                 data-bs-target="#navbarTogglerDemo02">Venue</span></a></li>
                     <li class="nav-item"><a href="#travel" class="nav-link"><span data-bs-toggle="collapse"
-                                data-bs-target="#navbarTogglerDemo02">Travel</span></a></li>
+                                data-bs-target="#navbarTogglerDemo02">Travel info</span></a></li>
+                    <li class="nav-item"><a href="#travel" class="nav-link"><span data-bs-toggle="collapse"
+                                data-bs-target="#navbarTogglerDemo02">Travel plans</span></a></li>
                     <li class="nav-item"><a href="#faq" class="nav-link"><span data-bs-toggle="collapse"
                                 data-bs-target="#navbarTogglerDemo02">FAQ</span></a></li>
                     <li class="nav-item"><a href="#todo" class="nav-link"><span data-bs-toggle="collapse"
@@ -67,11 +69,10 @@
                     </p>
                     <h5>Wedding</h5>
                     <p>
-                        <strong>Normal wedding attire</strong>
+                        <strong>Formal or Cocktail</strong>
                         <br>
-                        We are getting married in Hawaii, but not having a Hawaiian wedding. Only wear
-                        Hawaiian
-                        shirts on the day if you want to annoy Matt.
+                        We are getting married in Hawaii, but not having a Hawaiian wedding, so wear something nice on
+                        the day!
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -88,7 +89,7 @@
                     <h1 class="modal-title fs-5" id="rsvpUnlockModalToggleLabel">RSVP password</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="rsvp-unlock-form">
                     <form id="rsvp-password-form">
                         <div class="form-group">
                             <label for="password">Enter Password:</label>
@@ -111,8 +112,38 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <iframe id="form_iframe" src="" width="400" height="800" frameborder="0" marginheight="0"
+                    <iframe id="form_iframe" src="" width="450" height="800" frameborder="0" marginheight="0"
                         marginwidth="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addTravelModal" aria-hidden="true" aria-labelledby="addTravelModalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addTravelModalLabel">Add travel details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="accom-form">
+                        <div class="form-group">
+                            <label for="password">Enter Password:</label>
+                            <input type="password" class="form-control" id="password_accom" name="password_accom"
+                                required>
+                            <label for="who">Who are you:</label>
+                            <input type="text" class="form-control" id="who" name="who" required>
+                            <label for="flightin">Flight in (e.g. "QF120"):</label>
+                            <input type="text" class="form-control" id="flightin" name="flightin" required>
+                            <label for="flightout">Flight out:</label>
+                            <input type="text" class="form-control" id="flightout" name="flightout" required>
+                            <label for="accom">Accom:</label>
+                            <input type="text" class="form-control" id="accom" name="accom" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -131,7 +162,7 @@
                 </div>
                 <div class="row text-center">
                     <div class="col-md-6 col-sm-12 col-xs-12 leftcol ms-auto">
-                        Know if you'll make it? <br>
+                        <p>Know if you'll make it</p>
 
                         <a href="#" data-bs-target="#rsvpUnlockModalToggle" data-bs-toggle="modal"
                             class="btn btn-warning btn-fill btn-large" role="button">RSVP
@@ -140,7 +171,7 @@
                     <div class="col-md-6 col-sm-12 col-xs-12 rightcol ms-auto
                     ms-auto
                     ">
-                        Unsure of your plans? <br><a href="#" data-bs-target="#softrsvpUnlockModalToggle"
+                        <p>Unsure of your plans?</p><a href="#" data-bs-target="#softrsvpUnlockModalToggle"
                             data-bs-toggle="modal" class="btn btn-warning btn-fill btn-large" role="button">Soft-RSVP
                             Now</a>
                     </div>
@@ -150,11 +181,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
-
-        </div> -->
         </section>
 
         <section class="events section-padding" id="events">
@@ -176,7 +202,6 @@
                         Waikiki or Prince wharf.
                         <br>Catamaran paid for by Shannon and Matt. Cash bar for drinks.
                     </p>
-                    <p>Recommended Hawaiian shirt dress code</p>
                     <p>This event is optional</p>
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
@@ -186,7 +211,7 @@
                     <p>Ceremony and reception at Halekulani Hotel.
                         <br>4:30pm Arrive at Venue
                     </p>
-                    <p>Adults-only event, but we will help with babysitting arrangements.</p>
+                    <p>Adults-only event, but we will help with child minding arrangements.</p>
                     <p><strong>Friday 10th October</strong></p>
                     <h5>Morning-after brunch <span class="time">TBC</span></h5>
                     <p>Before we all head off our separate ways, lets meet for brunch. Details TBC.</p>
@@ -236,59 +261,89 @@
             <div class="col-xs-12 section-border">
             </div>
         </div>
-        <section class="travel text-center" id="travel">
+        <section class="travel section-padding" id="travel">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="header">Travel</h3>
+                    <h3 class="header">Travel info</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
+            <div class="row p-2">
+                <div class="col-md-6 col-sm-12 col-xs-12">
                     <h5>Flights</h5>
-                    <p>Daniel K. Inouye International Airport is the airport on Oahu in Honolulu. There are direct
-                        flights
-                        from Sydney and connecting flights from the Midwest.</p>
-                    <p>We will be flying in on Qantas flight 103 on Sunday 5th October, arriving at 9:00AM. We will
-                        be
-                        departing on Qantas flight 104 on Saturday 11th October, leaving at 11:00AM. Once you have
-                        your
-                        flights booked, please let us know your arrival/departures.</p>
-                    <p>If you decide to extend your holiday, there are inter-island flights from the Honolulu
+                    <p><strong>Daniel K. Inouye International Airport (airport code HNL)</strong> is the primary in
+                        Honolulu. </p>
+                    <p>
+                        There are direct flights from Sydney with Qantas, Jetstar and Hawaiian Air, with connecting
+                        flights on Air New Zealand and Fiji Airways. From the Midwest there are a number of
+                        connecting-flight options across most carrriers.</p>
+
+                    <p>If you decide to extend your holiday, there are inter-island flights from Honolulu
                         airport.
-                        Southwest and Hawaiian airlines flies to each island. If you decide to visit Kauai or the
+                        Southwest and Hawaiian airlines flies regularly to each island, with most inter-island flights
+                        being less than an hour. If you decide to visit Kauai or the
                         Big
                         Island, ask us for recommendations!</p>
-                </div>
-                <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
-                    <h5>Hotels</h5>
-                    <p>The wedding ceremony and reception will be held at Halekulani Hotel in Waikiki beach. We will
-                        be
-                        staying here the 9th of October and will be staying at the Embassay suites by Hilton on
-                        Waikiki
-                        beach the other nights.</p>
-                    <p>Waikiki Beach has a plethora of hotels right on the beach or just in from the beach. There
-                        are
-                        chain
-                        hotels or small hotels with kitchens available. Please book what best suites your needs and
-                        ask
-                        us
-                        if you need any assistance.</p>
-                    <p>Airbnb's are heavily regulated on Oahu. They are limited to very specific areas on the
-                        island. If
-                        you
-                        decide to stay in an airbnb please ensure the booking information includes the government
-                        rental
-                        code, meaning it is approved for short term rentals.</p>
-                </div>
-                <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
                     <h5>Transport</h5>
-                    <p>Uber is used on Oahu and is easily available. It is about a 20-30 minute uber from Honolulu
-                        airport
-                        to Waikiki beach.</p>
+                    <p>Uber is used on Oahu and is easily available. It is about a 20-30 minute Uber from Honolulu
+                        airport to Waikiki Beach.</p>
                     <p>Rental cars are also available for hire on Oahu if you would like to explore other areas of
-                        the
-                        island. Please note parking in Waikiki beach could prove expensive and difficult.</p>
+                        the island. Please note parking in Waikiki Beach could prove expensive and difficult.</p>
                     <p>Transport will not be provided to or from the wedding venue.</p>
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <h5>Hotels</h5>
+                    <p>The wedding ceremony and reception will be held at Halekulani Hotel in <strong>Waikiki
+                            Beach</strong>. We will
+                        be staying here the 9th of October and will be staying at the Embassay Suites by Hilton on
+                        Waikiki Beach the other nights.</p>
+                    <p>The Waikiki Beach area has almost 100 hotels, varing from luxury hotels right on the beach to
+                        more affordable hotels a few blocks back. There
+                        are both chain hotels and small independent hotels, with a range of facilities (e.g.
+                        including kitchens). Please book what best fits your
+                        needs and ask us if you need any assistance.</p>
+                    <p>You may wish to also look further afield in wider Honolulu for accomodation, if you want an even
+                        wider range of options. Whilst being further away from the wedding activities, this could offer
+                        some additional alternatives.</p>
+                    <p>Airbnbs are heavily regulated on Oahu. They are limited to very specific areas on the
+                        island. If you decide to stay in an airbnb please ensure the booking information includes the
+                        government rental code, meaning it is approved for short term rentals.</p>
+                </div>
+            </div>
+        </section>
+        <div class="row section-padding">
+            <div class="col-xs-12 section-border">
+            </div>
+        </div>
+        <section class="plans" id="plans">
+            <div class="row p-2">
+                <h3 class="header">Travel plans</h3>
+            </div>
+            <div class="row p-2">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Who</th>
+                            <th scope="col">Flight In</th>
+                            <th scope="col">Flight Out</th>
+                            <th scope="col">Accom.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Shannon and Matt</th>
+                            <td>Sunday 5th Oct: QF103, arriving at 9:00AM</td>
+                            <td>Saturday 11th Oct: QF104, leaving at 11:00AM</td>
+                            <td>Embassay Suites by Hilton / Halekulani</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row p-2">
+                <div class="col">
+                    Want to share you travel plans? &nbsp &nbsp &nbsp<a href="#" data-bs-target="#addTravelModal"
+                        data-bs-toggle="modal" class="btn btn-primary btn-fill btn-large" role="button">Share
+                        Now</a>
                 </div>
             </div>
         </section>
@@ -320,7 +375,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <p>bla bla17</p>
+                    <p>TBC</p>
                 </div>
             </div>
 

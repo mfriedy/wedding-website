@@ -5,7 +5,7 @@ document.getElementById('rsvp-password-form').addEventListener('submit', functio
     let formData = new FormData();
     formData.append('unlock_pw', password);
 
-    fetch('https://wedding.shannon-and-matt.com/unlock_form', {
+    fetch('/unlock_form', {
         method: 'POST',
         body: formData
 
@@ -22,16 +22,48 @@ document.getElementById('rsvp-password-form').addEventListener('submit', functio
                 modalR.show();
 
             } else {
-                document.getElementById('password-error').style.display = 'block';
+                // document.getElementById('password-error').style.display = 'block';
                 const passwordError = document.createElement('div');
                 passwordError.id = 'password-error';
                 passwordError.className = 'text-danger';
-                passwordError.style.display = 'none';
                 passwordError.textContent = 'Incorrect password. Please try again.';
-                document.getElementById('password-form').appendChild(passwordError);
+                document.getElementById('rsvp-unlock-form').appendChild(passwordError);
             }
         })
         .catch(error => {
             console.error('Error:', error);
         });
 });
+
+document.getElementById('accom-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    var formData = new FormData(event.target);
+    fetch('/accom', {
+        method: 'POST',
+        body: formData
+
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const passwordError = document.createElement('div');
+                passwordError.id = 'password-error';
+                passwordError.className = 'text-success';
+                passwordError.textContent = 'Success!.';
+                document.getElementById('accom-form').appendChild(passwordError);
+
+            } else {
+                // document.getElementById('password-error').style.display = 'block';
+                const passwordError = document.createElement('div');
+                passwordError.id = 'password-error';
+                passwordError.className = 'text-danger';
+                passwordError.textContent = 'Incorrect password. Please try again.';
+                document.getElementById('accom-form').appendChild(passwordError);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});
+
