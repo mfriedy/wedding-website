@@ -1,9 +1,10 @@
 document.getElementById('rsvp-password-form').addEventListener('submit', function (event) {
     event.preventDefault();
     const password = document.getElementById('password').value;
-    // Replace with your actual API endpoint
+    const req_type = document.getElementById('req_type').value;
     let formData = new FormData();
     formData.append('unlock_pw', password);
+    formData.append('req_type', req_type);
 
     fetch('/unlock_form', {
         method: 'POST',
@@ -18,11 +19,9 @@ document.getElementById('rsvp-password-form').addEventListener('submit', functio
                 modal.hide();
                 document.getElementById('form_iframe').src = data.form_url;
                 var modalR = new bootstrap.Modal(document.getElementById('rsvpFormModalToggle'));
-                // var modalR = bootstrap.Modal.getOrCreateInstance(myModelR)
                 modalR.show();
 
             } else {
-                // document.getElementById('password-error').style.display = 'block';
                 const passwordError = document.createElement('div');
                 passwordError.id = 'password-error';
                 passwordError.className = 'text-danger';
@@ -34,6 +33,27 @@ document.getElementById('rsvp-password-form').addEventListener('submit', functio
             console.error('Error:', error);
         });
 });
+
+const unlockModal = document.getElementById('rsvpUnlockModalToggle')
+if (unlockModal) {
+    unlockModal.addEventListener('show.bs.modal', event => {
+        // Button that triggered the modal
+        const button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        const req_type = button.getAttribute('data-bs-rsvptype')
+        // If necessary, you could initiate an Ajax request here
+        // and then do the updating in a callback.
+
+        // Update the modal's content.
+        const modalTitle = unlockModal.querySelector('.modal-title')
+        unlockModal.querySelector('input[name="req_type"]').value = req_type;
+        if (req_type == 'rsvp') {
+            modalTitle.textContent = 'RSVP unlock'
+        } else {
+            modalTitle.textContent = 'Soft RSVP unlock'
+        }
+    })
+}
 
 document.getElementById('accom-form').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -50,11 +70,10 @@ document.getElementById('accom-form').addEventListener('submit', function (event
                 const passwordError = document.createElement('div');
                 passwordError.id = 'password-error';
                 passwordError.className = 'text-success';
-                passwordError.textContent = 'Success!.';
+                passwordError.textContent = 'Success! You can close this window now';
                 document.getElementById('accom-form').appendChild(passwordError);
 
             } else {
-                // document.getElementById('password-error').style.display = 'block';
                 const passwordError = document.createElement('div');
                 passwordError.id = 'password-error';
                 passwordError.className = 'text-danger';

@@ -94,6 +94,7 @@
                         <div class="form-group">
                             <label for="password">Enter Password:</label>
                             <input type="password" class="form-control" id="password" required>
+                            <input type="hidden" id="req_type" name="req_type">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -185,14 +186,15 @@
                         <p>Know if you'll make it</p>
 
                         <a href="#" data-bs-target="#rsvpUnlockModalToggle" data-bs-toggle="modal"
-                            class="btn btn-warning btn-fill btn-large" role="button">RSVP
+                            class="btn btn-warning btn-fill btn-large" role="button" data-bs-rsvptype="rsvp">RSVP
                             Now</a>
                     </div>
                     <div class="col-md-6 col-sm-12 col-xs-12 rightcol ms-auto
                     ms-auto
                     ">
-                        <p>Unsure of your plans?</p><a href="#" data-bs-target="#softrsvpUnlockModalToggle"
-                            data-bs-toggle="modal" class="btn btn-warning btn-fill btn-large" role="button">Soft-RSVP
+                        <p>Unsure of your plans?</p><a href="#" data-bs-target="#rsvpUnlockModalToggle"
+                            data-bs-toggle="modal" class="btn btn-warning btn-fill btn-large" role="button"
+                            data-bs-rsvptype="soft_rsvp">Soft-RSVP
                             Now</a>
                     </div>
                 </div>
