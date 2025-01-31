@@ -34,6 +34,22 @@ document.getElementById('rsvp-password-form').addEventListener('submit', functio
         });
 });
 
+const slides = document.getElementsByClassName("mySlides");
+function showSlides() {
+    let i;
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    if (slideIndex >= slides.length) { slideIndex = 0 }
+    slides[slideIndex].setAttribute("style", "");
+    slideIndex++;
+}
+
+let slideIndex = 0;
+showSlides();
+setInterval(showSlides, 5000); // Change image every 5 seconds
+
 const unlockModal = document.getElementById('rsvpUnlockModalToggle')
 if (unlockModal) {
     unlockModal.addEventListener('show.bs.modal', event => {
