@@ -2,6 +2,10 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,400italic,300italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Text colours */
 :root {
     --txt-primary: rgba(28, 54, 83, 0.6);
@@ -150,4 +154,28 @@ img {
     to {
         opacity: 1
     }
+}
+
+#events {
+    scroll-margin-top: 80px;
+}
+
+#map {
+    scroll-margin-top: 80px;
+}
+
+#travel {
+    scroll-margin-top: 80px;
+}
+
+#plans {
+    scroll-margin-top: 80px;
+}
+
+#faq {
+    scroll-margin-top: 80px;
+}
+
+#todo {
+    scroll-margin-top: 80px;
 }
